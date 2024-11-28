@@ -26,6 +26,8 @@ layout: about
 
 如果你想了解更多关于我的破事，可以在上面找到我的其他社交媒体账号。
 
-先就这样吧，祝你有个愉快的一天！
+如果想找我聊天，可以来telegram找我：[https://t.me/stevezmtstudios](https://t.me/stevezmtstudios)。
+我不是很肯定qq能及时找到你哦！
 
+先就这样吧，祝你有个愉快的一天！
 ---
