@@ -47,11 +47,15 @@ pages:
 - name: 相册
   link: /gallery
 links:
-  - name: 个人主页
+  - name: 史蒂夫ZMT 主页
     link: https://stevezmt.top/
+  - name: 残页的小博客
+    link: https://blog.canyie.top/
+  - name: Weishu's Notes
+    link: https://weishu.me/
 since: 2024
-footer_text:
-license:
+footer_text: __EOF__
+license: CC BY-NC-SA 4.0
 
 gallery:
   fancybox_css: //cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css
@@ -72,13 +76,13 @@ search:
   path: /search.xml
   use: plugin
 comment:
-  use: false
+  use: gitalk
   disqus_shortname:
-  gitalk_client_id:
-  gitalk_client_secret:
-  gitalk_repo:
-  gitalk_owner:
-  gitalk_sid_type:
+  gitalk_client_id: Ov23li2IcxCrL109at0U
+  gitalk_client_secret: 6b1433f474c96a5c5a997a1de53739f6f939470a
+  gitalk_repo: articles
+  gitalk_owner: stevezmtstudios
+  gitalk_sid_type: uuid
   livere_data_uid:
   valine_leancloud_app_id:
   valine_leancloud_app_key:
