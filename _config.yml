@@ -96,7 +96,6 @@ ignore:
 theme: default
 
 
-notice: "该站点尚在建设中，您可能会遇到各种问题。请<a href=https://github.com/stevezmtstudios/articles/issues/new/choose>不吝反馈</a>！"
 
 
 # Markdown

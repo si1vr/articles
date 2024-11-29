@@ -2,6 +2,9 @@ theme_color:
   primary: indigo
   accent: blue
 
+notice: "该站点尚在建设中，您可能会遇到各种问题。请<a href=https://github.com/stevezmtstudios/articles/issues/new/choose>不吝反馈</a>！"
+
+
 favicon: /images/favicon.png
 banner: /images/banner.png
 avatar: /images/avatar.jpg
