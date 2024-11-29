@@ -11,7 +11,7 @@ tags:
 categories:
     - 折腾
     - 电子垃圾
-thumbnail: /images/blog/play-on-scanpen/thunb.jpeg
+thumbnail: /images/blog/play-on-scanpen/thumb.jpeg
 ---
 
 > 此页面最初由我自己发布在[酷安](https://www.coolapk.com/feed/49767646?shareKey=YWNkMzBmNTU4NmY3NjU1ODhiY2Y~&shareUid=22536770&shareFrom=com.coolapk.market_13.3.6)
@@ -25,7 +25,7 @@ thumbnail: /images/blog/play-on-scanpen/thunb.jpeg
 
 手机的软件需要我会在合适的时候填写在文章里面。
 
-0：解开这个设备！
+## 0：解开这个设备！
 有已知的这几个方式：
 1.打开设置，狂戳版本号8次，可以打开工厂调试，工厂调试里面的快捷菜单，打开mtk logger，在低于安卓7以下的版本中，mtk logger可以手动输入命令，如service call statusbar 1（这一条可以把状态栏拉下来，安卓状态栏控制中心里面都会有设置项。）
 2.打开设置,戳sn码3次后点一下版本号末端，跳出来一个要输密码的窗口，输入jxwkj888,进入设置。
@@ -38,11 +38,11 @@ thumbnail: /images/blog/play-on-scanpen/thunb.jpeg
 3.设备蓝牙连接手机，使用Bluetooth keyboard，新建一个虚拟组合键，按下win+N（Command+N）
 4.查看评论区给出的建议。如果您知道更多关于如何绕过前台桌面和强制悬浮窗的方法的话，请发送评论。
 
-1.打开adb调试并开始传输基本应用程序。
+## 1.打开adb调试并开始传输基本应用程序。
 在设置-关于本机中，点按多次“版本号”即可打开开发者选项。
 从酷安下载“甲壳虫ADB助手” [【甲壳虫ADB助手】](https://www.coolapk.com/apk/com.didjdk.adbhelper) 来更方便的联机调试。如果你不喜欢闭源软件以及付费服务的话，你也可以选择开源的ADB KIT.
 
-***无需外部adb调试的方法（仅限安卓5）：
+### 无需外部adb调试的方法（仅限安卓5）：
 打开设置（安卓设置,不是学王设置）
 选择安全，点开数据保护
 
@@ -70,7 +70,7 @@ thumbnail: /images/blog/play-on-scanpen/thunb.jpeg
 
 上面这些文件可以在[这里](https://stevezmt.top/sharepoint/)获得。
 
-关于sd卡授权读写的问题：
+### 关于sd卡授权读写的问题：
 如果你的设备没有基础的“下载管理程序”或”documentsui“，那么它们就是不能被授权，你只能adb移动文件。
 
 ![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](/images/blog/play-on-scanpen/3.jpg)
@@ -82,7 +82,7 @@ thumbnail: /images/blog/play-on-scanpen/thunb.jpeg
 如果你的设备屏幕过小，gesture可能有一些选项无法显示。显示的方法：首先把gesture打开在后台，然后启动一个强行横屏的应用程序（如新版via 【Via】 ，在利用多任务切换到gesture。如果这一步没有成功的话，检查屏幕自动旋转是否是打开状态。你现在就可以使用gesture里面的简易手势。
 我们建议你始终预留一个手势直接打开lawnchair。
 
-2.设置系统桌面
+## 2.设置系统桌面
 首先在默认应用程序里面看看能不能直接把lawnchair设置为系统桌面.如果adb也不能的话,在gesture里面把你想要返回到桌面的手势改成打开程序-Lawnchair，虽然跟真正意义上的桌面不一样，但是也算是曲线救国。
 
 或者安装冰箱之后，使用mtklogger里面的run command授权（没错，mtklogger的run command运行权限就是shell，uid2000），冻结com.android.provision组件后便可将lawnchair设为默认桌面（冰箱可能弹出警告，只需要确保学王扫学和/或lawnchair未被冻结即可），记住桌面锁定方式设置为“无”，而不是“滑动”，更不是任何密码锁定！
@@ -98,7 +98,7 @@ thumbnail: /images/blog/play-on-scanpen/thunb.jpeg
 为当时拍照的手机默哀
 
 （关于com.android.provision的问题，这个程序本来是用来广播系统组件更新完成的，但是jxw将其做成了锁定学王作为桌面的程序，因此若不冻结，那么设置里面将无法切换默认桌面）
-3.安装冰箱。
+## 3.安装冰箱。
 [酷安官方] [冰箱 IceBox：自动冻结・省电神器](http://www.coolapk.com/apk/com.catchingnow.icebox)
 [旧版本] 查看链接
 密码：dddd（懂的都懂）
@@ -111,11 +111,11 @@ thumbnail: /images/blog/play-on-scanpen/thunb.jpeg
 
 就像上文，冰箱的管理员授权指令直接输在mtklogger里面就可以，mtklogger可以从工厂测试里面打开。
 
-4.自由发挥
+## 4.自由发挥
 以下的链接提供了一些，我已经在我的笔上面试过运行良好且很实用的小程序组件,包含QQ b站等一些基本程序。
 如果你想下载其他程序的话，不妨在网上试着加上这些名词：tv版 手表版 车机版上面这些文件可以在[这里](https://stevezmt.top/sharepoint/)获得。 定制版 lite
 
-5.注意
+## 5.注意
 你需要时刻关注单词笔的内存使用量,因为内存使用量跟设备内存性能以及发热程度有关。
 ***不建议***在这一台单词笔上安装任何小而美的程序，以及专为手机打造的应用程序，否则导致的卡慢我们概不负责。
 
@@ -128,7 +128,7 @@ thumbnail: /images/blog/play-on-scanpen/thunb.jpeg
 
 上面这些文件可以在[这里](https://stevezmt.top/sharepoint/)获得。
 
-一个彩蛋：
+## 一个彩蛋：
 如果你需要system进程权限，即uid1000，那么可以通过安装activity launcher或“创建快捷方式”程序，通过它们打开common data service，反正就是蓝色机器人歪嘴那个，点开第一个activity，选择“network utility”，在第一个里面输入执行的shell脚本路径（sh文件）就行。
 
 ![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](/images/blog/play-on-scanpen/6.jpg)
