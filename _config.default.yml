@@ -54,7 +54,7 @@ links:
   - name: Weishu's Notes
     link: https://weishu.me/
 since: 2024
-footer_text: __EOF__
+footer_text: '| <a href="https://icp.gov.moe/?keyword=20240571" target="_blank" class="mdui-text-color-theme-accent">萌ICP备20240571号</a>'
 license: CC BY-NC-SA 4.0
 
 gallery:
