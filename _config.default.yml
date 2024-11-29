@@ -2,8 +2,6 @@ theme_color:
   primary: indigo
   accent: blue
 
-notice: "该站点尚在建设中，您可能会遇到各种问题。请<a href=https://github.com/stevezmtstudios/articles/issues/new/choose>不吝反馈</a>！"
-
 favicon: /images/favicon.png
 banner: /images/banner.png
 avatar: /images/avatar.jpg
@@ -14,6 +12,7 @@ sns:
   twitter:
   facebook:
   google_plus:
+#  steam: https://steamcommunity.com/id/stevezmt/
   weibo:
   instagram:
   tumblr:
@@ -62,13 +61,13 @@ busuanzi:
   busuanzi_js: //busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
 qrcode:
   caption: 发送到手机
-  use: online
+  use: plugin
   
 donate:
 search:
   placeholder: 搜索...
   path: /search.xml
-  use: online
+  use: plugin
 comment:
   use: false
   disqus_shortname:
