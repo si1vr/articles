@@ -19,6 +19,14 @@ jobs:
         git config --global user.name 'stevezmtstudios'
         git config --global user.email '98326195+SteveZMTstudios@users.noreply.github.com'
 
+    
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.ACTIONS_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
@@ -33,7 +41,5 @@ jobs:
       run: npx hexo generate
 
     - name: Deploy to GitHub Pages
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npx hexo deploy
