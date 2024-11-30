@@ -3,11 +3,14 @@ uuid: 7660f962-25f3-59fc-b72a-4f895eec1cbd
 title: 创建页面
 date: 1970-01-01 08:00:00
 comments: false
+count: false
+donate: false
+license: false
 ---
 
 构建状态：<a href='https://github.com/SteveZMTstudios/articles/actions/workflows/hexo-deploy.yml'><img src='https://github.com/SteveZMTstudios/articles/actions/workflows/hexo-deploy.yml/badge.svg'></a> <a href='https://github.com/SteveZMTstudios/articles/actions/workflows/pages/pages-build-deployment'><img src='https://github.com/SteveZMTstudios/articles/actions/workflows/pages/pages-build-deployment/badge.svg'></a>
 
-<center><button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='(function(){function f(c,a){var b=document.createElement("a");b.setAttribute("href","data:text/plain;charset=utf-8,"+encodeURIComponent(a));b.setAttribute("download",c);b.style.display="none";document.body.appendChild(b);b.click();document.body.removeChild(b)}function h(){function a(){return(((1+Math.random())*65536)|0).toString(16).substring(1)}return(a()+a()+"-"+a()+"-"+a()+"-"+a()+"-"+a()+a()+a())}function i(d){var b=new Date();var a={"M+":b.getMonth()+1,"d+":b.getDate(),"h+":b.getHours(),"m+":b.getMinutes(),"s+":b.getSeconds(),"q+":Math.floor((b.getMonth()+3)/3),"S":b.getMilliseconds()};if(/(y+)/.test(d)){d=d.replace(RegExp.$1,(b.getFullYear()+"").substr(4-RegExp.$1.length))}for(var c in a){if(new RegExp("("+c+")").test(d)){d=d.replace(RegExp.$1,(RegExp.$1.length==1)?(a[c]):(("00"+a[c]).substr((""+a[c]).length)))}}return d}function g(a){return"---\nuuid: "+h()+"\ntitle: "+a+"\ndate: "+i("yyyy-MM-dd hh:mm:ss")+"\ntags:\ncategories:\ntoc: true\nthumbnail:\ncomments: true\nexcerpt:\n---\n"}var j=window.prompt("请输入文章题目","new-post");if(!j){return}f(j+".md",g(j));alert("模板已下载，请使用其他编辑器继续创作。");})();'>新建文章</button>&nbsp;<button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='window.open("https:/"+"/github.com/stevezmtstudios/articles/upload/main/source/_posts","_blank");'>上传文章</button>&nbsp;<br><button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='window.open("https:/"+"/github.com/stevezmtstudios/sharepoint/upload/main/_posts","_blank");'>上传附件</button>&nbsp;<button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='(function(){var title=window.prompt("请输入文章题目","new-post");if(title){window.open("https:/"+"/github.com/stevezmtstudios/sharepoint/upload/main/source/images/blog/"+title,"_blank");}})();'>上传图片</button></center>
+<center><button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='(function(){function f(c,a){var b=document.createElement("a");b.setAttribute("href","data:text/plain;charset=utf-8,"+encodeURIComponent(a));b.setAttribute("download",c);b.style.display="none";document.body.appendChild(b);b.click();document.body.removeChild(b)}function h(){function a(){return(((1+Math.random())*65536)|0).toString(16).substring(1)}return(a()+a()+"-"+a()+"-"+a()+"-"+a()+"-"+a()+a()+a())}function i(d){var b=new Date();var a={"M+":b.getMonth()+1,"d+":b.getDate(),"h+":b.getHours(),"m+":b.getMinutes(),"s+":b.getSeconds(),"q+":Math.floor((b.getMonth()+3)/3),"S":b.getMilliseconds()};if(/(y+)/.test(d)){d=d.replace(RegExp.$1,(b.getFullYear()+"").substr(4-RegExp.$1.length))}for(var c in a){if(new RegExp("("+c+")").test(d)){d=d.replace(RegExp.$1,(RegExp.$1.length==1)?(a[c]):(("00"+a[c]).substr((""+a[c]).length)))}}return d}function g(a){return"---\nuuid: "+h()+"\ntitle: "+a+"\ndate: "+i("yyyy-MM-dd hh:mm:ss")+"\ntags:\ncategories:\nlicense:\ntoc: true\ndonate:\nthumbnail:\ncomments: true\nexcerpt:\n---\n"}var j=window.prompt("请输入文章题目","new-post");if(!j){return}f(j+".md",g(j));alert("模板已下载，请使用其他编辑器继续创作。");})();'>新建文章</button>&nbsp;<button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='window.open("https:/"+"/github.com/stevezmtstudios/articles/upload/main/source/_posts","_blank");'>上传文章</button>&nbsp;<br><br><button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='window.open("https:/"+"/github.com/stevezmtstudios/sharepoint/upload/main/_posts","_blank");'>上传附件</button>&nbsp;<button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='(function(){var title=window.prompt("请输入文章题目","new-post");if(title){window.open("https:/"+"/github.com/stevezmtstudios/sharepoint/upload/main/source/images/blog/"+title,"_blank");}})();'>上传图片</button></center>
 
 ## 页面创建器 使用指南
 1. 点击上方的“新建文章”按钮，输入文章标题（应当为全小写和连字符组成），即可下载模板文件。
@@ -38,6 +41,8 @@ title: NewPost # 文章标题
 date: 2024-12-01 00:35:28 # 发布日期
 tags: # 标签
 categories: # 分类
+license: # 文章选用的许可证，留空即为CC by-nc-sa 4.0
+donate: # 是否开启捐赠
 toc: true # 是否显示目录
 thumbnail: # 缩略图（建议将位置设为mirror.blog.stevezmt.top）
 comments: true # 是否开启评论
