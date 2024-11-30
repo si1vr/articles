@@ -1,0 +1,33 @@
+name: Hexo Deploy
+
+on:
+  pull_request:
+    branches:
+      - main  # 你可以根据需要修改分支名称
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 'latest'  # 你可以根据需要修改 Node.js 版本
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Generate static files
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        npm install -g hexo-deployer-git
+        hexo deploy
