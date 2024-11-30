@@ -27,17 +27,10 @@ jobs:
     - name: Install dependencies
       run: |
         npm install
-        npm install hexo -g
-        npm install hexo-cli -g
         npm ci
-        npm install hexo-deployer-git -g
-        npm install -S hexo-helper-qrcode hexo-generator-search
 
     - name: Generate static files
-      run: npm run build
-
-    - name: Install Hexo Deployer
-      run: npm install -g hexo-deployer-git
+      run: npx hexo generate
 
     - name: Deploy to GitHub Pages
       env:
