@@ -11,7 +11,7 @@ tags:
 categories:
     - 折腾
     - 电子垃圾
-thumbnail: /images/blog/play-on-scanpen/thumb.jpeg
+thumbnail: https://mirror.blog.stevezmt.top/images/blog/play-on-scanpen/thumb.jpeg
 ---
 
 > 此页面最初由我自己发布在[酷安](https://www.coolapk.com/feed/49767646?shareKey=YWNkMzBmNTU4NmY3NjU1ODhiY2Y~&shareUid=22536770&shareFrom=com.coolapk.market_13.3.6)
@@ -31,7 +31,7 @@ thumbnail: /images/blog/play-on-scanpen/thumb.jpeg
 2.打开设置,戳sn码3次后点一下版本号末端，跳出来一个要输密码的窗口，输入jxwkj888,进入设置。
 （此方案普遍适用于嘉鑫微方案软件，如果关于本机中包含JXW条目，那么尽管不是单词笔，你也可以尝试。）
 
-![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](/images/blog/play-on-scanpen/1.jpg)
+![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](https://mirror.blog.stevezmt.top/images/blog/play-on-scanpen/1.jpg)
 
 键盘是可以滑动的
 
@@ -46,7 +46,7 @@ thumbnail: /images/blog/play-on-scanpen/thumb.jpeg
 打开设置（安卓设置,不是学王设置）
 选择安全，点开数据保护
 
-![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](/images/blog/play-on-scanpen/2.jpg)
+![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](https://mirror.blog.stevezmt.top/images/blog/play-on-scanpen/2.jpg)
 
 点开要绘制手势，放心这不会变砖
 
@@ -73,7 +73,7 @@ thumbnail: /images/blog/play-on-scanpen/thumb.jpeg
 ### 关于sd卡授权读写的问题：
 如果你的设备没有基础的“下载管理程序”或”documentsui“，那么它们就是不能被授权，你只能adb移动文件。
 
-![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](/images/blog/play-on-scanpen/3.jpg)
+![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](https://mirror.blog.stevezmt.top/images/blog/play-on-scanpen/3.jpg)
 
 就是那个“下载”
 
@@ -94,7 +94,7 @@ thumbnail: /images/blog/play-on-scanpen/thumb.jpeg
 
 (这一步完成发现系统自带音乐)
 
-![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](/images/blog/play-on-scanpen/4.jpg)
+![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](https://mirror.blog.stevezmt.top/images/blog/play-on-scanpen/4.jpg)
 为当时拍照的手机默哀
 
 （关于com.android.provision的问题，这个程序本来是用来广播系统组件更新完成的，但是jxw将其做成了锁定学王作为桌面的程序，因此若不冻结，那么设置里面将无法切换默认桌面）
@@ -106,7 +106,7 @@ thumbnail: /images/blog/play-on-scanpen/thumb.jpeg
 
 上面这些文件可以在[这里](https://stevezmt.top/sharepoint/)获得。
 
-![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](/images/blog/play-on-scanpen/5.jpg)
+![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](https://mirror.blog.stevezmt.top/images/blog/play-on-scanpen/5.jpg)
 妹想到吧
 
 就像上文，冰箱的管理员授权指令直接输在mtklogger里面就可以，mtklogger可以从工厂测试里面打开。
@@ -131,7 +131,7 @@ thumbnail: /images/blog/play-on-scanpen/thumb.jpeg
 ## 一个彩蛋：
 如果你需要system进程权限，即uid1000，那么可以通过安装activity launcher或“创建快捷方式”程序，通过它们打开common data service，反正就是蓝色机器人歪嘴那个，点开第一个activity，选择“network utility”，在第一个里面输入执行的shell脚本路径（sh文件）就行。
 
-![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](/images/blog/play-on-scanpen/6.jpg)
+![加载图片时遇到问题，请尝试访问mirror.blog.stevezmt.top](https://mirror.blog.stevezmt.top/images/blog/play-on-scanpen/6.jpg)
 
 喏
 
