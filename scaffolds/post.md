@@ -5,4 +5,6 @@ tags:
 categories:
 toc: true
 comments: true
+thumbnail:
+excerpt:
 ---
