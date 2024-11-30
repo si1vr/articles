@@ -12,22 +12,36 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: Setup Git
+      run: |
+        git config --global user.name 'stevezmtstudios'
+        git config --global user.email '98326195+SteveZMTstudios@users.noreply.github.com'
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '14'  # 你可以根据需要修改 Node.js 版本
+        node-version: '12'  # 你可以根据需要修改 Node.js 版本
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm install
+        npm install hexo -g
+        npm install hexo-cli -g
+        npm ci
+        npm install hexo-deployer-git -g
+        npm install -S hexo-helper-qrcode hexo-generator-search
 
     - name: Generate static files
       run: npm run build
+
+    - name: Install Hexo Deployer
+      run: npm install -g hexo-deployer-git
 
     - name: Deploy to GitHub Pages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        npm install -g hexo-deployer-git
+        sed -i "s~git@github.com:~https://${{secrets.gh_token}}@github.com/~" _config.yml
         hexo deploy
