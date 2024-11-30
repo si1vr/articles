@@ -38,6 +38,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        npm install -g hexo
         npm install
         npm ci
 
