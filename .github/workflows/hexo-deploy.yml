@@ -36,5 +36,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        sed -i "s~git@github.com:~https://${{secrets.GITHUB_TOKEN}}@github.com/~" _config.yml
-        hexo deploy
+        npx hexo deploy
