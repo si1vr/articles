@@ -159,5 +159,5 @@ mermaid:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: git
-    repo: git@github.com:SteveZMTstudios/articles.git
+    repo: https://github.com/SteveZMTstudios/articles.git
     branch: gh-pages
