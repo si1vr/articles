@@ -95,7 +95,10 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: default
 
-
+analytics:
+  google_site_id: G-T404DHJEEZ
+  baidu_site_id:
+  cnzz_site_id:
 
 
 # Markdown
