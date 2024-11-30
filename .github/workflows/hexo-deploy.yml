@@ -49,6 +49,14 @@ jobs:
         npm install
         cd ../..
 
+
+    - name: Verify Theme Files
+      run: |
+        if [ ! -d "themes/default/layout" ]; then
+          echo "Theme layout files are missing"
+          exit 1
+        fi
+        
     - name: Clean up
       run: npx hexo clean
 
