@@ -2,7 +2,7 @@ theme_color:
   primary: indigo
   accent: blue
 
-notice: "该站点尚在建设中，您可能会遇到各种问题。请<a href='https://github.com/stevezmtstudios/articles/issues/new/choose'>不吝反馈</a>！<br>构建状态：<a href='https://github.com/SteveZMTstudios/articles/actions/workflows/hexo-deploy.yml'><img src='https://github.com/SteveZMTstudios/articles/actions/workflows/hexo-deploy.yml/badge.svg'></a> <a href='https://github.com/SteveZMTstudios/articles/actions/workflows/pages/pages-build-deployment'><img src='https://github.com/SteveZMTstudios/articles/actions/workflows/pages/pages-build-deployment/badge.svg'></a>"
+notice: "该站点尚在建设中，您可能会遇到各种问题。请<a href='https://github.com/stevezmtstudios/articles/issues/new/choose'>不吝反馈</a>！"
 
 
 favicon: /images/favicon.png
