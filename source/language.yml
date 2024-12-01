@@ -1,9 +1,0 @@
-default:
-  menu:
-    //../themes/default/languages/zh-CN.yml
-zh-CN:
-  menu:
-    //../themes/default/languages/zh-CN.yml
-en:
-  menu:
-    //../themes/default/languages/en.yml

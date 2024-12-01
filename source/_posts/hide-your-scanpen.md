@@ -1,7 +1,7 @@
 ---
 uuid: 41980377-68a2-7104-1fa2-43d53ebb52df
 title: 如何在学校安全的玩翻译笔
-lang: zh-CN
+
 comments: true
 date: 2024-03-22 10:00:00
 

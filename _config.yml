@@ -8,37 +8,14 @@ subtitle: 又名“史蒂夫ZMT”的树洞。
 description: 随笔、日志、技术分享、个人作品
 keywords: blog, 博客, 随笔, SteveZMT, 史蒂夫ZMT
 author: Steve ZMT
-language: 
-  - zh-CN
-  - en
-
-
-
-
-
-i18n:
-  type:
-    - page
-    - post  
-  generator:
-    - index
-    - archive
-    - category
-    - tag
-  default_lang: zh-CN
-
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://blog.stevezmt.top/
-permalink: :lang/:year/:month/:day/:title/
-
+permalink: :year/:month/:day/:title/
 permalink_defaults:
-  lang: zh-CN
-
-
-
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -83,7 +60,6 @@ prismjs:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  single_language_index: true
   path: ''
   per_page: 10
   order_by: -date

@@ -1,7 +1,6 @@
 ---
 uuid: c31453b5-5ddc-5c17-0fde-aa938c3a99f3
 title: 玩飞一台翻译词典笔（进阶-获取root）
-lang: zh-CN
 toc: true
 comments: true
 date: 2024-02-01 14:55:00
