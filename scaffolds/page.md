@@ -1,6 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
+lang: zh-CN
 comments: false
 toc: false
 

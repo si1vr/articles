@@ -1,6 +1,7 @@
 ---
 uuid: a7a96631-691e-1bc4-9149-f53ab32c7da5
 title: 玩飞一台翻译词典笔（非root方案）
+lang: zh-CN
 toc: true
 comments: true
 date: 2023-10-01 16:52:00

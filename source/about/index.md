@@ -1,5 +1,6 @@
 ---
 title: 我
+lang: zh-CN
 layout: about
 comments: false
 ---

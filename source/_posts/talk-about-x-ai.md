@@ -1,6 +1,7 @@
 ---
 uuid: 59113989-6ec8-da0c-5fbf-0fc4dc94538a
 title: 关于 x.ai 的一些看法
+lang: zh-CN
 date: 2024-12-01 11:54:46
 tags:
     - AI
