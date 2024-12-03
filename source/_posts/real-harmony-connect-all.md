@@ -84,7 +84,7 @@ thumbnail:
   就好了（x
 2. 异地访问设备文件
     - 这个就更简单了，电脑可以直接在托盘图标上右键，选择远程文件访问，然后在电脑上就可以访问手机的文件了。
-   ![图片](https://mirror.blog.stevezmt.top/images/blog/real-harmony-connect-all/1@454x493.webp)
+   ![图片](https://mirror.blog.stevezmt.top/images/blog/real-harmony-connect-all/1@370x800.webp)
     - 手机访问电脑的话可能就还得依赖SCP。
 1. 远程桌面
    这个前面提得很清楚了，不过体验不好，不推荐。
@@ -95,7 +95,7 @@ thumbnail:
    如果kde connect授过权的话应该开箱即用的
 4. 剪贴板同步
    电脑会自动同步到手机上。手机下拉通知栏，选择发送剪贴板，就可以发送到所有设备
-    ![图片](https://mirror.blog.stevezmt.top/images/blog/real-harmony-connect-all/7@1080x2340.webp)
+    ![图片](https://mirror.blog.stevezmt.top/images/blog/real-harmony-connect-all/7.jpg)
 5. 远程锁屏/关机/快捷执行指令
    这个需要Linux & KDE Plasma的kde connect主机，然后在手机上就可以远程执行指令了。
    还可以把快捷方式放到设备管理器（小米设备的在控制中心，叫智能生活）
