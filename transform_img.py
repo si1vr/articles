@@ -1,7 +1,6 @@
 import os
 from PIL import Image
 import re
-import re
 
 def convert_images_to_webp(source_dir, target_dir):
     for root, _, files in os.walk(source_dir):
