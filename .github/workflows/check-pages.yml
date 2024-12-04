@@ -4,8 +4,11 @@ on:
   push:
     branches: [ main ]
   pull_request:
+    types: [opened, synchronize, reopened]
     branches: [ main, gh-pages ]
-    types: [opened, reopened]
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches: [ main, gh-pages ]
   workflow_dispatch:
 
 jobs:
