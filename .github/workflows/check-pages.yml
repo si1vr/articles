@@ -12,43 +12,74 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
+    - id: checkout
+      name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Block gh-pages merges
+    - id: block-gh-pages
+      name: Block gh-pages merges
       if: github.base_ref == 'gh-pages'
       run: |
         echo "##################################################"
         echo "不允许直接合并到 gh-pages 分支!!!"
         exit 1
 
-    - name: Setup Node.js
+    - id: setup-node
+      name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '22'
 
-    - name: Install dependencies
+    - id: install-dependencies
+      name: Install dependencies
       run: |
         npm install 
         npm install -g hexo
         npm ci
         sudo apt-get install tidy -y
         
-    - name: Install theme dependencies  
+    - id: install-theme-dependencies
+      name: Install theme dependencies  
       run: |
         cd themes/default
         npm install
         cd ../..
 
-    - name: Clean 
+    - id: clean
+      name: Clean 
       run: npx hexo clean
 
-    - name: Build check
+    - id: build-check
+      name: Build check
       run: |
         # 使用 --debug 模式生成,这样会输出更详细的错误信息
         npx hexo generate --debug
 
-    - name: Check HTML files
+    - id: check-html
+      name: Check HTML files
       run: |
         # 检查生成的 HTML 文件是否有问题
         find public -name "*.html" -exec tidy -e {} \;
+
+    - name: Generate Summary
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const steps = [
+            'Checkout repository',
+            'Block gh-pages merges',
+            'Setup Node.js',
+            'Install dependencies',
+            'Install theme dependencies',
+            'Clean',
+            'Build check',
+            'Check HTML files'
+          ];
+          const summary = steps.map(step => `- ${step}`).join('\n');
+          github.rest.actions.createWorkflowRunAttempt({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            run_id: context.runId,
+            attempt_number: context.runAttempt,
+            body: `## Workflow Steps\n${summary}`
+          });
