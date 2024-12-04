@@ -9,7 +9,7 @@ tags:
     - 安卓
     - 互联
     - KDE
-    - Root
+    - root
 categories:
     - 折腾
 #donate:
