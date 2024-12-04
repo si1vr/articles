@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main, gh-pages ]
+  workflow_dispatch:
 
 jobs:
   build-check:
