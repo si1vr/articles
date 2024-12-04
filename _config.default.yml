@@ -15,7 +15,7 @@ sns:
   twitter:
   facebook:
   google_plus:
-#  steam: https://steamcommunity.com/id/stevezmt/
+  steam: https://steamcommunity.com/id/stevezmt/
   weibo:
   instagram:
   tumblr:
@@ -25,6 +25,8 @@ sns:
   douban:
   qq: tencent://message/?uin=3579946866&Menu=yes
   wechat:
+  bilibili: https://space.bilibili.com/474130186
+  custom: https://stevezmt.top/
 
 open_graph:
   twitter:
