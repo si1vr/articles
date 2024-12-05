@@ -162,5 +162,6 @@ deploy:
     repo: git@github.com:SteveZMTstudios/articles.git
     branch: gh-pages
     ignore_hidden: false
+    force: true
     include: 
       - ".github/**/*"

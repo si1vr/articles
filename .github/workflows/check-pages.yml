@@ -1,8 +1,12 @@
 name: Build Check
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened]
+  # 添加工作流所需权限
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   check-merge-target:
@@ -43,8 +47,18 @@ jobs:
         run: npx hexo clean
 
       - name: Build check
+        id: build
+        continue-on-error: true
         run: |
-          npx hexo generate --debug
+          if ! npx hexo generate --debug; then
+            echo "build_error<<EOF" >> $GITHUB_OUTPUT
+            echo "Hexo 构建失败。请检查以下可能的问题：" >> $GITHUB_OUTPUT
+            echo "- 文章格式是否正确" >> $GITHUB_OUTPUT
+            echo "- Front-matter 语法是否正确" >> $GITHUB_OUTPUT
+            echo "- Markdown 语法是否有误" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            exit 1
+          fi
           
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
@@ -66,5 +80,49 @@ jobs:
         run: sudo apt-get install tidy -y
         
       - name: Check HTML files
+        id: validate
+        continue-on-error: true
         run: |
-          find public -name "*.html" -exec tidy -e {} \;
+          ERRORS=$(mktemp)
+          if ! find public -name "*.html" -exec tidy -e {} \; 2> "$ERRORS"; then
+            echo "html_error<<EOF" >> $GITHUB_OUTPUT
+            echo "HTML 验证失败。发现以下问题：" >> $GITHUB_OUTPUT
+            cat "$ERRORS" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+  comment-on-pr:
+    needs: [build, validate-html]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/github-script@v6
+        env:
+          BUILD_ERROR: ${{ needs.build.outputs.build_error }}
+          HTML_ERROR: ${{ needs.validate-html.outputs.html_error }}
+        with:
+          script: |
+            const buildSuccess = '${{ needs.build.result }}' === 'success';
+            const validateSuccess = '${{ needs.validate-html.result }}' === 'success';
+            
+            let message = '';
+            if (buildSuccess && validateSuccess) {
+              message = '✅ 构建检查完全通过！\n- 代码构建成功\n- HTML验证通过';
+            } else {
+              message = '❌ 构建检查失败！\n\n';
+              if (!buildSuccess) {
+                message += '### 构建错误\n' + process.env.BUILD_ERROR + '\n\n';
+              }
+              if (!validateSuccess) {
+                message += '### HTML验证错误\n' + process.env.HTML_ERROR + '\n\n';
+              }
+              message += '\n请修复以上问题后重新提交。';
+            }
+            
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            });
