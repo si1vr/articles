@@ -3,25 +3,39 @@ name: Build Check
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
-  # 添加工作流所需权限
+
 permissions:
   contents: read
   pull-requests: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check-merge-target:
+    name: Check merge target
     runs-on: ubuntu-latest
+    outputs:
+      branch_error: ${{ steps.check.outputs.branch_error }}
     steps:
       - name: Block gh-pages merges
+        continue-on-error: false
+        id: check
         if: github.base_ref == 'gh-pages'
         run: |
-          echo "##################################################"
-          echo "不允许直接合并到 gh-pages 分支!!!"
-          exit 1
+            echo "##################################################"
+            echo "不允许直接合并到 gh-pages 分支!!!" >> $GITHUB_OUTPUT
+            exit 1
+        
 
   build:
+    name: Build site
     needs: check-merge-target
     runs-on: ubuntu-latest
+    outputs:
+      build_error: ${{ steps.build.outputs.build_error }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -67,8 +81,11 @@ jobs:
           path: public/
 
   validate-html:
+    name: Validate HTML
     needs: build
     runs-on: ubuntu-latest
+    outputs:
+      html_error: ${{ steps.validate.outputs.html_error }}
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v3
@@ -93,6 +110,7 @@ jobs:
           fi
 
   comment-on-pr:
+    name: Comment result
     needs: [build, validate-html]
     runs-on: ubuntu-latest
     if: always()
@@ -101,11 +119,11 @@ jobs:
         env:
           BUILD_ERROR: ${{ needs.build.outputs.build_error }}
           HTML_ERROR: ${{ needs.validate-html.outputs.html_error }}
+          
         with:
           script: |
             const buildSuccess = '${{ needs.build.result }}' === 'success';
             const validateSuccess = '${{ needs.validate-html.result }}' === 'success';
-            
             let message = '';
             if (buildSuccess && validateSuccess) {
               message = '✅ 构建检查完全通过！\n- 代码构建成功\n- HTML验证通过';
@@ -126,3 +144,9 @@ jobs:
               repo: context.repo.repo,
               body: message
             });
+            
+            // 根据检查结果设置最终状态
+            if (!buildSuccess || !validateSuccess) {
+              process.exit(1);
+            }
+            process.exit(0);
