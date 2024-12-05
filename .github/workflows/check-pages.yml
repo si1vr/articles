@@ -1,15 +1,8 @@
 name: Build Check
 
 on:
-#  push:
-#    branches: [ main, gh-pages ]
   pull_request:
     types: [opened, synchronize, reopened]
-    branches: [ main, gh-pages ]
-#  pull_request_target:
-#    types: [opened, synchronize, reopened]
-#    branches: [ main, gh-pages ]
-#  workflow_dispatch:
 
 jobs:
   check-merge-target:
