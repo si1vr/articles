@@ -28,12 +28,12 @@
 
   <meta name="keywords" content="<% if (page.tags && page.tags.each) { page.tags.each(function (tag) { %><%= ',' + tag.name %><% })} else if (config.keywords) { %><%= config.keywords %><% } %>">
   <meta name="format-detection" content="telephone=no,email=no">
-  <meta name="theme-color" content="#9C27B0">
+  <meta name="theme-color" content="#448AFF">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="<%= config.title %>">
   <meta name="msapplication-starturl" content="<%- config.url + url_for(page.path).replace('index.html', '') %>">
-  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="msapplication-navbutton-color" content="#448AFF">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="<%= config.title %>">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
