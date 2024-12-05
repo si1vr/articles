@@ -1,6 +1,9 @@
 name: Hexo Deploy
 
 on:
+  push:
+    branches:
+      - main  # 你可以根据需要修改分支
   workflow_dispatch:  # 手动触发
 
 permissions:
