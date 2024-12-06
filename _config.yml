@@ -97,7 +97,10 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: default
 
-
+excerpt_length: 160
+auto_excerpt:
+  enable: true
+  length: 150
 
 # Markdown
 ## Docs: https://github.com/niemingzhao/hexo-renderer-markdown#readme
