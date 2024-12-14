@@ -48,15 +48,15 @@ pages:
   link: /tagcloud
 - name: 相册
   link: /gallery
+- name: 友情链接
+  link: /friends
+
 links:
   - name: 史蒂夫ZMT 主页
     link: https://stevezmt.top/
-  - name: 残页的小博客
-    link: https://blog.canyie.top/
-  - name: Listder's Blog
-    link: https://blog.listder.xyz/
-  - name: 花と詩
-    link: https://lar.moe/
+  - name: 过气项目存档
+    link: https://rip.stevezmt.top
+    
 
 since: 2024
 footer_text: '| <a href="https://icp.gov.moe/?keyword=20240571" target="_blank" class="mdui-text-color-theme-accent">萌ICP备20240571号</a>'

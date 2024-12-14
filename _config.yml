@@ -6,7 +6,12 @@
 title: 老史尬侃 - Steve ZMT 's Blog
 subtitle: 又名“史蒂夫ZMT”的树洞。
 description: 随笔、日志、技术分享、个人作品 Steve ZMT is soliloquize here.
-keywords: blog, 博客, 随笔, SteveZMT, 史蒂夫ZMT
+keywords: 
+  - blog
+  - 博客
+  - 随笔
+  - SteveZMT 
+  - 史蒂夫ZMT
 author: Steve ZMT
 language: zh-CN
 timezone: Asia/Shanghai
