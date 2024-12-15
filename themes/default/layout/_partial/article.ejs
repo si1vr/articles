@@ -8,7 +8,8 @@
       // 检查链接是否为外部链接(不是blog.stevezmt.top或mirror.blog.stevezmt.top)
       if (href && href.startsWith('http') && 
           !href.includes('blog.stevezmt.top') && 
-          !href.includes('mirror.blog.stevezmt.top')) {
+          !href.includes('mirror.blog.stevezmt.top') && 
+          !href.includes('localhost')) {
         // 重定向到redirect页面
         link.href = `/redirect?goto=${encodeURIComponent(href)}`;
       }
