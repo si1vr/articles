@@ -76,7 +76,7 @@ window.onload = async function() {
         <p>您将要访问的链接不属于老史尬侃或 stevezmt.top ，请注意您的账号和财产安全。</p>
 
         <div class="mdui-btn-group">
-            <button onclick="window.location.href='${goto}'" class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple">继续访问</button> <span style="margin: 0 10px;"></span> <button onclick="history.back()" class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple">返回上一页</button>
+            <button onclick="window.location.href='${goto}'" class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple">继续访问</button>&nbsp;<button onclick="history.back()" class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple">返回</button>
         </div>`;
     } catch(e) {
       document.getElementById('target-info').innerHTML = `

@@ -18,6 +18,8 @@ function uuid() {
   return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4();
 }
 
+
+
 function new_post(post) {
   let lines = post.content.split('\n');
   let index = lines.findIndex(item => item === 'uuid:');
