@@ -61,9 +61,9 @@ window.onload = async function() {
 
       // 定义不同状态对应的文本
       const messages = {
-        secure: 'HTTPS 安全连接',
-        timeout: '连接超时，可能无法打开页面。',
-        normal: '普通连接'
+        secure: '🔒 HTTPS 安全连接',
+        timeout: '❔ 连接超时，页面可能无法访问',
+        normal: '🔓❗不安全的连接，请勿输入敏感信息'
       };
       
       document.getElementById('target-info').innerHTML = `
