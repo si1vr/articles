@@ -1,3 +1,21 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 获取所有文章内容中的链接
+    const links = document.querySelectorAll('.mdui-card-content a');
+    
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      // 检查链接是否为外部链接(不是blog.stevezmt.top或mirror.blog.stevezmt.top)
+      if (href && href.startsWith('http') && 
+          !href.includes('blog.stevezmt.top') && 
+          !href.includes('mirror.blog.stevezmt.top')) {
+        // 重定向到redirect页面
+        link.href = `/redirect?goto=${encodeURIComponent(href)}`;
+      }
+    });
+  });
+  </script>
+
 <% if (page.photos && page.photos.length) { %>
   <%- css(theme.gallery.fancybox_css) %>
   <article class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5 mdui-row-xl-6 mdui-grid-list" style="margin: 0 auto;">
