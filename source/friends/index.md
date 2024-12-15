@@ -45,6 +45,17 @@ qrcode:
       <a href="https://blog.elykia.cn/" style="color: #3498db; text-decoration: none;">访问网站</a>
     </div>
   </div>
+    </div>
+   <div class="friend-card" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; width: 200px; text-align: center;">
+    <div style="height: 120px; overflow: hidden;">
+        <img src="https://mooc-image.nosdn.127.net/39af7994fbe843b7bcc0f9d201d8785a.png" alt="kocleo" style="width: 100%; height: 120px; object-fit: cover;">
+    </div>
+    <div class="friend-info" style="padding: 15px;">
+      <h3 style="margin: 0; font-size: 1.2em;  color: var(--text-color, #000);">KoCleo 主页</h3>
+      <p style="color: #666;">电子垃圾资源站</p>
+      <a href="http://http://kc.qutama.de:2086/" style="color: #3498db; text-decoration: none;">访问网站</a>
+    </div>
+  </div>
   <!-- 可以继续添加更多友链卡片 -->
 </div>
 
