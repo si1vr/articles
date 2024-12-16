@@ -10,6 +10,7 @@
             const notices = <%- JSON.stringify(theme.notice) %>;
             let typing = false;
             let typingTimeout;
+            lastUsedNotice = -1;
     
             function typeWriter(html, element, speed, callback) {
               const tempDiv = document.createElement('div');
@@ -89,6 +90,7 @@
               const noticeElement = document.getElementById('random-notice');
               deleteWriter(noticeElement, 13, function() {
                 typeWriter(notices[randomIndex], noticeElement, 120);
+                randomIndex === lastUsedNotice ? displayRandomNotice() : lastUsedNotice = randomIndex;
               });
             }
     
