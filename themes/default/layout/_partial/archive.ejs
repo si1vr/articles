@@ -7,43 +7,51 @@
         <span id="random-notice"></span>
         <script>
           document.addEventListener('DOMContentLoaded', function() {
-            const notices = "<%- theme.notice %>".split(',');
+            const notices = <%- JSON.stringify(theme.notice) %>;
             let typing = false;
             let typingTimeout;
     
-            function typeWriter(text, element, speed, callback) {
-              let i = 0;
+            function typeWriter(html, element, speed, callback) {
+              const tempDiv = document.createElement('div');
+              tempDiv.innerHTML = html;
+              const nodes = Array.from(tempDiv.childNodes);
+              let currentNode = 0;
+              let currentChar = 0;
               typing = true;
+
               function type() {
                 if (!typing) return;
-                if (i < text.length) {
-                  element.innerHTML += text.charAt(i);
-                  i++;
-                  typingTimeout = setTimeout(type, speed);
-                } else {
+                
+                if (currentNode >= nodes.length) {
                   typing = false;
                   if (callback) callback();
+                  return;
                 }
+
+                const node = nodes[currentNode];
+                if (node.nodeType === Node.TEXT_NODE) {
+                  if (currentChar < node.length) {
+                    element.innerHTML += node.textContent[currentChar];
+                    currentChar++;
+                  } else {
+                    currentChar = 0;
+                    currentNode++;
+                  }
+                } else {
+                  element.innerHTML += node.outerHTML;
+                  currentNode++;
+                }
+                
+                typingTimeout = setTimeout(type, speed);
               }
+              
+              element.innerHTML = '';
               type();
             }
     
             function deleteWriter(element, speed, callback) {
-              let text = element.innerHTML;
-              let i = text.length;
-              typing = true;
-              function erase() {
-                if (!typing) return;
-                if (i > 0) {
-                  element.innerHTML = text.substring(0, i - 1);
-                  i--;
-                  typingTimeout = setTimeout(erase, speed);
-                } else {
-                  typing = false;
-                  if (callback) callback();
-                }
-              }
-              erase();
+              element.innerHTML = '';
+              if (callback) callback();
             }
     
             function displayRandomNotice() {
