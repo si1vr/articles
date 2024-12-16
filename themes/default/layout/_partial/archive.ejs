@@ -4,10 +4,14 @@
       <i class="mdui-icon material-icons mdui-text-color-deep-orange">announcement</i> 
       <!--<%- Array.isArray(theme.notice) ? theme.notice[Math.floor(Math.random() * theme.notice.length)] : theme.notice %>-->
       <% if (Array.isArray(theme.notice)) { %>
-        <span id="random-notice">
-          <% const randomIndex = Math.floor(Math.random() * theme.notice.length); %>
-          <%= theme.notice[randomIndex] %>
-        </span>
+        <span id="random-notice"></span>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const notices = "<%= theme.notice %>".split(',');
+            const randomIndex = Math.floor(Math.random() * notices.length);
+            document.getElementById('random-notice').innerText = notices[randomIndex];
+          });
+        </script>
       <% } else { %>
         <%= theme.notice %>
       <% } %>
