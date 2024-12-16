@@ -2,7 +2,15 @@
   <article class="mdui-card mdui-m-b-5">
     <div class="mdui-card-content mdui-typo mdui-ripple">
       <i class="mdui-icon material-icons mdui-text-color-deep-orange">announcement</i> 
-      <%- Array.isArray(theme.notice) ? theme.notice[Math.floor(Math.random() * theme.notice.length)] : theme.notice %>
+      <!--<%- Array.isArray(theme.notice) ? theme.notice[Math.floor(Math.random() * theme.notice.length)] : theme.notice %>-->
+      <% if (Array.isArray(theme.notice)) { %>
+        <span id="random-notice">
+          <% const randomIndex = Math.floor(Math.random() * theme.notice.length); %>
+          <%= theme.notice[randomIndex] %>
+        </span>
+      <% } else { %>
+        <%= theme.notice %>
+      <% } %>
     </div>
   </article>
 <% } %>
