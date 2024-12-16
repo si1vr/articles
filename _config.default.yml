@@ -108,6 +108,13 @@ qrcode:
   use: plugin
   
 donate:
+  - name: 支付宝
+    link: /images/page/donate/alipay.jpg
+  - name: 微信
+    link: /images/page/donate/wechat.jpg
+  - name: B币充电
+    link: https://space.bilibili.com/474130186
+  
 search:
   placeholder: 搜索...
   path: /search.xml
