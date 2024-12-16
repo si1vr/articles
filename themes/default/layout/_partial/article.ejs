@@ -140,7 +140,9 @@
         <% } else if (theme.license && page.license !== false) { %>
           <strong><%- theme.license %></strong><br>
         <% } %>
-        <strong><%= __('permalink') %></strong><br><a href="<%- page.permalink %>"><%- decodeURI(page.permalink) %></a>
+        <% if (!(page.thislink === false) ) {%>
+          <strong><%= __('permalink') %></strong><br><a href="<%- page.permalink %>"><%- decodeURI(page.permalink) %></a>
+        <% } %>
       </blockquote>
     </div>
     <footer class="mdui-card-actions">
