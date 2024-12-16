@@ -1,15 +1,65 @@
 <% if (page.current === 1 && is_home() && theme.notice) { %>
   <article class="mdui-card mdui-m-b-5">
-    <div class="mdui-card-content mdui-typo mdui-ripple">
+    <div class="mdui-card-content mdui-typo mdui-ripple" id="notice-container">
       <i class="mdui-icon material-icons mdui-text-color-deep-orange">announcement</i> 
       <!--<%- Array.isArray(theme.notice) ? theme.notice[Math.floor(Math.random() * theme.notice.length)] : theme.notice %>-->
       <% if (Array.isArray(theme.notice)) { %>
         <span id="random-notice"></span>
         <script>
           document.addEventListener('DOMContentLoaded', function() {
-            const notices = "<%= theme.notice %>".split(',');
-            const randomIndex = Math.floor(Math.random() * notices.length);
-            document.getElementById('random-notice').innerText = notices[randomIndex];
+            const notices = "<%- theme.notice %>".split(',');
+            let typing = false;
+            let typingTimeout;
+    
+            function typeWriter(text, element, speed, callback) {
+              let i = 0;
+              typing = true;
+              function type() {
+                if (!typing) return;
+                if (i < text.length) {
+                  element.innerHTML += text.charAt(i);
+                  i++;
+                  typingTimeout = setTimeout(type, speed);
+                } else {
+                  typing = false;
+                  if (callback) callback();
+                }
+              }
+              type();
+            }
+    
+            function deleteWriter(element, speed, callback) {
+              let text = element.innerHTML;
+              let i = text.length;
+              typing = true;
+              function erase() {
+                if (!typing) return;
+                if (i > 0) {
+                  element.innerHTML = text.substring(0, i - 1);
+                  i--;
+                  typingTimeout = setTimeout(erase, speed);
+                } else {
+                  typing = false;
+                  if (callback) callback();
+                }
+              }
+              erase();
+            }
+    
+            function displayRandomNotice() {
+              if (typing) {
+                typing = false;
+                clearTimeout(typingTimeout);
+              }
+              const randomIndex = Math.floor(Math.random() * notices.length);
+              const noticeElement = document.getElementById('random-notice');
+              deleteWriter(noticeElement, 20, function() {
+                typeWriter(notices[randomIndex], noticeElement, 150);
+              });
+            }
+    
+            displayRandomNotice();
+            document.getElementById('notice-container').addEventListener('click', displayRandomNotice);
           });
         </script>
       <% } else { %>
