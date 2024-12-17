@@ -56,7 +56,7 @@
       <% } %>
       <a href="<%- url_for(post.link || post.path) %>"<% if (post.link) { %> target="_blank"<% } %>>
         <span><%= date(post.date, 'MM-DD') %></span>
-        <span><%= post.title %><% if (post.sticky || post.top) { %><i class="mdui-icon material-icons">fiber_pin</i><% } %></span>
+        <span><%= post.title %><% if (post.sticky || post.top) { %><i class="mdui-icon material-icons" translate="no">fiber_pin</i><% } %></span>
       </a>
     <% }) %>
   </article>
@@ -80,12 +80,12 @@
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
             <div class="mdui-card-primary-title"><h1 style="margin: 0; font-size: inherit; font-weight: inherit;"><%= page.title %></h1></div>
-          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> <%- date(page.date) %> / <i class="iconfont">&#xe601;</i> <%= page.author || config.author %><% if (theme.busuanzi.page && page.count !== false ) { %> &nbsp;&nbsp; <span id="busuanzi_container_page_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_page_pv"></span></span><% } %></div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont" translate="no">&#xe697;</i> <%- date(page.date) %> / <i class="iconfont" translate="no">&#xe601;</i> <%= page.author || config.author %><% if (theme.busuanzi.page && page.count !== false ) { %> &nbsp;&nbsp; <span id="busuanzi_container_page_pv" style="display: none;"><i class="iconfont" translate="no">&#xe7fd;</i> <span id="busuanzi_value_page_pv"></span></span><% } %></div>
         </div>
       </div>
       <div class="mdui-card-menu">
         <% if (page.qrcode !== false) { %>
-          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons" translate="no">devices</i></button>
           <ul class="mdui-menu" id="qrcode">
             <% if (theme.qrcode.caption) { %>
               <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple"><%= theme.qrcode.caption %></a></li>
@@ -100,7 +100,7 @@
           </ul>
         <% } %>
         <% if (page.share_menu !== false) { %>
-          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons" translate="no">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
               <a href="https://service.weibo.com/share/share.php?appkey=&title=<%= page.title %>&url=<%- page.permalink %>&pic=<%- config.url + url_for(theme.favicon) %>&searchPic=false&style=simple" target="_blank" class="mdui-ripple"><%= __('share.weibo') %></a>
@@ -131,7 +131,7 @@
       <%- page.content %>
       <% if (is_post() && page.donate !== false && theme.donate && theme.donate.length) { %>
         <div class="mdui-m-y-2 mdui-text-center">
-          <button class="mdui-fab mdui-color-deep-orange mdui-text-color-white mdui-ripple" mdui-dialog="{target: '#donate'}" mdui-tooltip="{content: '<%= __('donate') %>', position: 'top'}"><i class="mdui-icon material-icons">thumb_up</i></button>
+          <button class="mdui-fab mdui-color-deep-orange mdui-text-color-white mdui-ripple" mdui-dialog="{target: '#donate'}" mdui-tooltip="{content: '<%= __('donate') %>', position: 'top'}"><i class="mdui-icon material-icons" translate="no">thumb_up</i></button>
         </div>
       <% } %>
       <blockquote>
@@ -180,7 +180,7 @@
   <nav id="paginator">
     <% if (page.prev) { %>
       <a rel="prev" class="extend prev" href="<%- url_for(page.prev.path) %>">
-        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons" translate="no">arrow_back</i></button>
         <span class="mdui-p-x-3" mdui-tooltip="{content: '<%= page.prev.title %>'}"><%= __('prev') %></span>
       </a>
     <% } %>
@@ -188,7 +188,7 @@
     <% if (page.next) { %>
       <a rel="next" class="extend next" href="<%- url_for(page.next.path) %>">
         <span class="mdui-p-x-3" mdui-tooltip="{content: '<%= page.next.title %>'}"><%= __('next') %></span>
-        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons" translate="no">arrow_forward</i></button>
       </a>
     <% } %>
   </nav>
@@ -201,7 +201,7 @@
 <% var toc = toc(page.content, {class: 'toc', list_number: false}) %>
 <% if (is_post() && page.toc && toc.length) { %>
   <div style="position: fixed !important; right: 16px; top: 30%;">
-    <button class="mdui-fab mdui-fab-mini mdui-ripple" mdui-menu="{target: '#toc'}"><i class="mdui-icon material-icons">toc</i></button>
+    <button class="mdui-fab mdui-fab-mini mdui-ripple" mdui-menu="{target: '#toc'}"><i class="mdui-icon material-icons" translate="no">toc</i></button>
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item" disabled><%- toc %></li>
     </ul>
