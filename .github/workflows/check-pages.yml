@@ -113,10 +113,10 @@ jobs:
           fi
 
   comment-on-pr:
-    name: Comment result
+    name: Comment results
     needs: [build, validate-html]
     runs-on: ubuntu-latest
-    if: always()
+    if: always() && github.event_name == 'pull_request_target'
     steps:
       - uses: actions/github-script@v6
         env:
