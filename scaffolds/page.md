@@ -19,3 +19,5 @@ thumbnail: # 设置文章头图,默认为随机 Material 风格图片 [<imgpath:
 # timeline: # 设为 'true' 定义此页为时间线（一般只定义一次） [true|<none>]
 # tagcloud: # 设为 'true' 定义此页为标签云（一般只定义一次） [true|<none>]
 ---
+
+<!-- write anything u want and just delete this... -->
