@@ -173,6 +173,14 @@ mermaid:
   theme: 'default'    #default, forest, dark, neutral.
 
 
+service_worker:
+  maximumFileSizeToCacheInBytes: 5242880
+  staticFileGlobs:
+  - public/**/*.{js,html,css,jpg,gif,svg,eot,ttf,woff,woff2}
+  stripPrefix: public
+  verbose: true
+
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
