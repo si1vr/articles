@@ -10,8 +10,9 @@
   <main id="main" class="mdui-m-t-5 fadeIn animated"><%- body %></main>
   <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
   <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons" translate="no">arrow_upward</i></button>
-  <% if (theme.busuanzi.site || theme.busuanzi.page) { %><script async src="<%- theme.busuanzi.busuanzi_js %>"></script><% } %>
+  <% if (theme.busuanzi.site || theme.busuanzi.page) { %><script defer src="<%- theme.busuanzi.busuanzi_js %>"></script><% } %>
   <%- js(['js/mdui', 'js/script']) %>
   <%- js('custom') %>
 </body>
+<script defer src = 'https://cdn.bootcdn.net/ajax/libs/instantclick/3.1.0/instantclick.min.js' data-no-instant></script>
 </html>
