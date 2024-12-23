@@ -105,7 +105,7 @@ theme: default
 # lazyload image
 lazyload:
   enable: true
-  onlypost: true # optional
+  onlypost: false # optional
   loadingImg: /images/loading.gif
   isSPA: false # optional
   preloadRatio: 3 # optional, default is 1
@@ -176,7 +176,7 @@ mermaid:
 service_worker:
   maximumFileSizeToCacheInBytes: 5242880
   staticFileGlobs:
-  - public/**/*.{js,html,css,jpg,gif,svg,eot,ttf,woff,woff2}
+  - public/**/*.{css,eot,gif,html,ijmap,jpeg,jpg,js,png,svg,ttf,webp,woff,woff2,xml}
   stripPrefix: public
   verbose: true
 
