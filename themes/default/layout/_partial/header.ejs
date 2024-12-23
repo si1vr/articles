@@ -10,9 +10,10 @@
 <div class="mdui-dialog" id="search">
   <% if (theme.search.use === 'plugin') { %>
     <div class="search-form">
-      <input type="search" class="search-form-input" placeholder="<%= theme.search.placeholder %>">
+      <input type="search"  id="search-input" name="search" class="search-form-input" placeholder="<%= theme.search.placeholder %>">
     </div>
     <div class="search-result" data-resource="<%- url_for(theme.search.path) %>"></div>
+    
   <% } else { %>
     <%- search_form({class: 'search-form', text: theme.search.placeholder, button: false}) %>
     <div class="search-result"></div>
