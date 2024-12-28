@@ -100,6 +100,19 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons" translate="no">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
+              <a href="javascript:void(0);" class="mdui-ripple" onclick="copyToClipboard('<%- page.permalink %>');"><%= __('share.copy_link') %></a>
+            </li>
+
+            <script>
+              function copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(function() {
+                  mdui.snackbar({message: '已复制链接!', position: 'top', buttonText: '好'});
+                }, function(err) {
+                  console.error('Could not copy text: ', err);
+                });
+              }
+            </script>
+            <li class="mdui-menu-item">
               <a href="https://service.weibo.com/share/share.php?appkey=&title=<%= page.title %>&url=<%- page.permalink %>&pic=<%- config.url + url_for(theme.favicon) %>&searchPic=false&style=simple" target="_blank" class="mdui-ripple"><%= __('share.weibo') %></a>
             </li>
             <li class="mdui-menu-item">
@@ -120,6 +133,25 @@
             <li class="mdui-menu-item">
               <a href="https://telegram.me/share/url?url=<%- page.permalink %>&text=<%= page.title %>" target="_blank" class="mdui-ripple"><%= __('share.telegram') %></a>
             </li>
+            <li class="mdui-menu-item">
+              <a href="javascript:void(0);" class="mdui-ripple" onclick="sharePageviaSystem();"><%= __('share.system') %></a>
+            </li>
+
+            <script>
+              function sharePageviaSystem() {
+                if (navigator.share) {
+                  navigator.share({
+                    title: '<%= page.title %>',
+                    text: '<%- page.excerpt.replace(/(<([^>]+)>)/gi, "") %>',
+                    url: '<%- page.permalink %>'
+                  }).then(() => {
+                    mdui.snackbar({message: '感谢分享！', position: 'top'});
+                  }).catch(console.error);
+                } else {
+                  mdui.snackbar({message: '您的浏览器不支持此方式。', position: 'top', buttonText: '好吧'});
+                }
+              }
+            </script>
           </ul>
         <% } %>
       </div>

@@ -1,6 +1,6 @@
 // offline config passed to workbox-build.
 module.exports = {
-    globPatterns: ['**/*.{css,eot,gif,html,ijmap,jpeg,jpg,js,png,svg,ttf,webp,woff,woff2,xml}'],
+    globPatterns: ['**/*.{css,eot,gif,html,ijmap,js,png,svg,ttf,woff,woff2,xml}'],
     //                    ^ok ^ok ^ok ^ok  ^ok   ^ok  ^ok ^ok^ok ^ok ^ok ^ok  ^ok  ^ok   ^ok
 
     // 使用 `find . -type f -name '*.*' | sed 's|.*\.||' | sort | uniq | paste -sd '|'` 捕获
@@ -44,18 +44,18 @@ module.exports = {
           cacheableResponse: { statuses: [0, 200] },
           expiration: { maxAgeSeconds: 86400 * 7 } // 按需修改
         }
-      },
-      {
-        urlPattern: /.*\.(xml|)$/,
+            },
+            {
+        urlPattern: /^(?!.*(sitemap|atom)\.xml$).*\.xml$/,
         handler: 'CacheFirst',
         options: {
           cacheName: 'xml-cache',
           cacheableResponse: { statuses: [0, 200] },
-          expiration: { maxAgeSeconds: 86400 * 7 } // 按需修改
+          expiration: { maxAgeSeconds: 86400 * 7 }, // 按需修改
         }
       },
       {
-        urlPattern: /.*\.(png|gif|jpg|jpeg|webp|ico|svg|cur|mp4|woff|ijmap|ttf|eot|woff2?)$/,
+        urlPattern: /.*\.(png|gif|webp|ico|svg|cur|woff|ijmap|ttf|eot|woff2?)$/,
         handler: 'CacheFirst',
         options: {
           cacheName: 'media-cache',
@@ -63,7 +63,15 @@ module.exports = {
         }
       },
       {
-        urlPattern: /^https:\/\/(cdn\.staticfile\.org|unpkg\.com|mirror\.blog\.stevezmt\.top)\/.*/,
+        urlPattern: /.*\/(avatar|banner|favicon|grey|loading|material-\d+)\.(png|gif)$/,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'media-preset-cache',
+          cacheableResponse: { statuses: [0, 200] }
+        }
+      },
+      {
+        urlPattern: /^https:\/\/(cdn\.staticfile\.org|unpkg\.com|cdn\.bootcdn\.net|cdnjs\.cloudflare\.com|cdn\.jsdelivr\.net|cdn-city\.livere\.com)\/.*/,
         handler: 'CacheFirst',
         options: {
           cacheName: 'cdn-cache',

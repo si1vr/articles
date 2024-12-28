@@ -6,102 +6,134 @@
       <% if (Array.isArray(theme.notice)) { %>
         <span id="random-notice"></span>
         <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            const notices = <%- JSON.stringify(theme.notice) %>;
-            let typing = false;
-            let typingTimeout;
-            lastUsedNotice = -1;
-    
-            function typeWriter(html, element, speed, callback) {
-              const tempDiv = document.createElement('div');
-              tempDiv.innerHTML = html;
-              const nodes = Array.from(tempDiv.childNodes);
-              let currentNode = 0;
-              let currentChar = 0;
-              typing = true;
+          (function() {
+            // 通知系统状态管理
+            const NoticeSystem = {
+              get isInitialized() {
+                return localStorage.getItem('notice-system-initialized') === 'true';
+              },
+              set isInitialized(value) {
+                localStorage.setItem('notice-system-initialized', value);
+              },
+              typing: false,
+              typingTimeout: null,
+              lastUsedNotice: -1
+            };
+          
+            // 初始化函数
+            window.initNoticeSystem = function() {
+              console.log('Initializing notice system...');
+              
+              const isHome = window.location.pathname === '/' || 
+                            window.location.pathname === '/index.html';
+              
+              if (!isHome || NoticeSystem.typing) {
+                console.log('Not initializing - not home or typing in progress');
+                return;
+              }
+          
+              const notices = <%- JSON.stringify(theme.notice) %>;
+              const noticeElement = document.getElementById('random-notice');
+              
+              if (!noticeElement) {
+                console.log('Notice element not found');
+                return;
+              }
+          
+              function typeWriter(html, element, speed, callback) {
+                console.log('Typing notice:', html);
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                const nodes = Array.from(tempDiv.childNodes);
+                let currentNode = 0;
+                let currentChar = 0;
+                NoticeSystem.typing = true;
 
-              function type() {
-                if (!typing) return;
-                
-                if (currentNode >= nodes.length) {
-                  typing = false;
-                  if (callback) callback();
-                  return;
-                }
+                function type() {
+                  if (!NoticeSystem.typing) return;
 
-                const node = nodes[currentNode];
-                if (node.nodeType === Node.TEXT_NODE) {
-                  if (currentChar < node.length) {
-                    element.innerHTML += node.textContent[currentChar];
-                    currentChar++;
+                  if (currentNode >= nodes.length) {
+                    NoticeSystem.typing = false;
+                    if (callback) callback();
+                    return;
+                  }
+
+                  const node = nodes[currentNode];
+                  if (node.nodeType === Node.TEXT_NODE) {
+                    if (currentChar < node.length) {
+                      element.innerHTML += node.textContent[currentChar];
+                      currentChar++;
+                    } else {
+                      currentChar = 0;
+                      currentNode++;
+                    }
                   } else {
-                    currentChar = 0;
+                    element.innerHTML += node.outerHTML;
                     currentNode++;
                   }
-                } else {
-                  element.innerHTML += node.outerHTML;
-                  currentNode++;
+
+                  NoticeSystem.typingTimeout = setTimeout(type, speed);
                 }
-                
-                typingTimeout = setTimeout(type, speed);
+
+                element.innerHTML = '';
+                type();
               }
-              
-              element.innerHTML = '';
-              type();
-            }
-    
-            function deleteWriter(element, speed, callback) {
-              let text = element.innerHTML;
-              let i = text.length;
-              let askip = false;
-              typing = true;
-              function erase() {
-                if (!typing) return;
-                if (i > 0) {
-                  // speed up when at '</a>'
-                  if (element.innerHTML.endsWith('</a>')) {
-                    speed = speed - 10;
-                    element.innerHTML = text.substring(0, i - 38);
-                    i = i - 38;
+
+              function deleteWriter(element, speed, callback) {
+                if (!element) return;
+                let text = element.innerHTML;
+                let i = text.length;
+                NoticeSystem.typing = true;
+                function erase() {
+                  if (!NoticeSystem.typing) return;
+                  if (i > 0) {
+                    element.innerHTML = text.substring(0, i - 1);
+                    i--;
+                    NoticeSystem.typingTimeout = setTimeout(erase, speed);
+                  } else {
+                    NoticeSystem.typing = false;
+                    if (callback) callback();
                   }
-                  if (element.innerHTML.endsWith('<a tar')) {
-                    speed = speed + 10;
-                    askip = false;
-                  }
-                  element.innerHTML = text.substring(0, i - 1);
-                  i--;
-                  
-                  typingTimeout = setTimeout(erase, speed);
-                  
-                } else {
-                  typing = false;
-                  if (callback) callback();
                 }
+                erase();
               }
-              erase();
-            }
-    
-            function displayRandomNotice() {
-              if (typing) {
-                typing = false;
-                clearTimeout(typingTimeout);
+
+              function displayRandomNotice() {
+                console.log('Displaying random notice');
+                if (NoticeSystem.typing) {
+                  NoticeSystem.typing = false;
+                  clearTimeout(NoticeSystem.typingTimeout);
+                }
+
+                const randomIndex = Math.floor(Math.random() * notices.length);
+                deleteWriter(noticeElement, 13, function() {
+                  typeWriter(notices[randomIndex], noticeElement, 120);
+                  if (randomIndex === NoticeSystem.lastUsedNotice) {
+                    displayRandomNotice();
+                  } else {
+                    NoticeSystem.lastUsedNotice = randomIndex;
+                  }
+                });
               }
-              const randomIndex = Math.floor(Math.random() * notices.length);
-              const noticeElement = document.getElementById('random-notice');
-              deleteWriter(noticeElement, 13, function() {
-                typeWriter(notices[randomIndex], noticeElement, 120);
-                randomIndex === lastUsedNotice ? displayRandomNotice() : lastUsedNotice = randomIndex;
-              });
-            }
-    
-            displayRandomNotice();
-            document.getElementById('notice-container').addEventListener('click', displayRandomNotice);
-          });
-        </script>
+
+              // 事件监听器
+              const container = document.getElementById('notice-container');
+              if (container && !NoticeSystem.isInitialized) {
+                container.addEventListener('click', displayRandomNotice);
+                NoticeSystem.isInitialized = true;
+              }
+
+              // 显示首条通知
+              displayRandomNotice();
+            };
+          
+            // 初始化调用
+            window.initNoticeSystem();
+          })();
+          </script>
       <% } else { %>
         <%= theme.notice %>
       <% } %>
-    </div>
   </article>
 <% } %>
 <% if (is_archive()) { %>

@@ -8,11 +8,40 @@
         <div class="mdui-grid-tile-title"><%= config.author %></div>
         <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons" translate="no">art_track</i><%= config.subtitle %></div>
       </div>
+      <!--
       <% if (theme.email) { %>
         <div class="mdui-grid-tile-buttons">
           <a href="mailto:<%= theme.email %>" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '<%= theme.email %>'}"><i class="mdui-icon material-icons" translate="no">email</i></a>
         </div>
-      <% } %>
+      <% } %> 
+      -->
+      <% if (theme.email) { %>
+        <div class="mdui-grid-tile-buttons">
+          <a href="javascript:void(0);" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '<%= theme.email %>'}" onclick="copyEmailToClipboard('<%= theme.email %>')">
+            <i class="mdui-icon material-icons" translate="no">email</i>
+          </a>
+        </div>
+        <script>
+          function copyEmailToClipboard(email) {
+            navigator.clipboard.writeText(email).then(function() {
+              mdui.snackbar({
+                message: '已将邮箱地址复制到剪贴板!',
+                position: 'left-top',
+                buttonText: '写邮件',
+                onButtonClick: function(){
+                  window.location.href = 'mailto:' + '<%= theme.email %>';
+                }
+              });
+            }, function(err) {
+              console.error('Could not copy text: ', err);
+              mdui.snackbar({
+                message: '复制邮箱地址失败!',
+                position: 'right-top',
+              });
+            });
+          }
+        </script>
+<% } %>
     </div>
   </div>
 
