@@ -47,7 +47,7 @@ license: false
             return d
         }
         function g(a){
-            return"---\nuuid: "+h()+"\ntitle: "+a+"\ndate: "+i("yyyy-MM-dd hh:mm:ss")+"\n# author: # 作者，默认为Steve ZMT\n# top: true # 置顶文章\n\ntags:\n#    - 标签1\ncategories:\n#    - 分类1\ndonate: true # 默认启用打赏，[False|True]\n# license: # 设为 false 关闭版权声明或输入自定义版权声明 [false|<license:string>]\ntoc: true # 启用目录，[False|True]\ncomments: true # 启用评论 [False|True]\n# license: # 设为 false 关闭版权声明或输入自定义版权声明 [false|<license:string>]\n# thumbnail: # 设置文章头图,默认为随机 Material 风格图片 [<imgpath:urlstr>|<none>]\n# excerpt: # 摘要，默认为文章的前120个字符（在archive.ejs:147更改）\n# count: false # 默认启用阅读量统计，[False|True]\n# lang:  # 默认使用简体中文，[en|zh-cn]\n# layout: # 默认使用markdown布局，[custom]\n---\n"
+            return"---\nuuid: "+h()+"\ntitle: "+a+"\ndate: "+i("yyyy-MM-dd hh:mm:ss")+"\n# author: # 作者，默认为Steve ZMT\n# top: true # 置顶文章\n\ntags:\n#    - 标签1\ncategories:\n#    - 分类1\ndonate: true # 默认启用打赏，[False|True]\n# license: # 设为 false 关闭版权声明或输入自定义版权声明 [false|<license:string>]\ntoc: true # 启用目录，[False|True]\ncomments: true # 启用评论 [False|True]\n# license: # 设为 false 关闭版权声明或输入自定义版权声明 [false|<license:string>]\n# thumbnail: # 设置文章头图,默认为随机 Material 风格图片 [<imgpath:urlstr>|<none>]\n# excerpt: # 摘要，默认为文章的前120个字符（在archive.ejs:147更改）\n# count: false # 默认启用阅读量统计，[False|True]\n# lang:  # 默认使用简体中文，[en|zh-cn]\n# layout: # 默认使用markdown布局，[custom]\n---\n\n\n<!-- more -->\n\n文章内容（使用markdown语法）"
         }
         mdui.prompt("请输入文章题目","新建文章", 
             function (value) {
@@ -61,7 +61,7 @@ license: false
             {confirmText: "创建并下载", cancelText: "取消", defaultValue: "new-post"}
         );
     })();'>新建文章</button>&nbsp;
-    <button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='window.open("https:/"+"/github.com/stevezmtstudios/article-preview/upload/main/source/_posts","_blank");'>上传文章</button>&nbsp;<br><br>
+    <button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='window.open("https:/"+"/github.com/stevezmtstudios/articles/upload/main/source/_posts","_blank");'>上传文章</button>&nbsp;<br><br>
     <button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='window.open("https:/"+"/github.com/stevezmtstudios/sharepoint/upload/main/_posts","_blank");'>上传附件</button>&nbsp;
     <button class='mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple' onclick='(function(){
         mdui.prompt("请输入文章题目", "上传图片",
