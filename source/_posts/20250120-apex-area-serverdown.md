@@ -25,8 +25,20 @@ comments: true # 启用评论 [False|True]
 🛑灾难性终止
 网站域 stevezmt.top 和 www.stevezmt.top 因签名未能提交导致暂时性停止运营。
 
+<!-- more -->
+
 同样的， Phigros-history (PhiHistoryLib)项目也暂时无法使用。
 
 我们正在努力解决这一问题。
 
 其他域 如 blog.stevezmt.top 暂时未探测到问题。
+
+
+20250120 15:11:29
+
+---
+
+经历了大约3个小时的修复，我们已经成功解决了这一问题。
+所有网域均已恢复正常运行，所有服务均已恢复上线。
+
+20250120 19:16:32
