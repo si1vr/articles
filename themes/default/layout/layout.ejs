@@ -22,12 +22,19 @@
           const $ = mdui.$;
           const inst = new mdui.Drawer(drawer);
           const isMobile = window.innerWidth < 1024;
+          const menuButtonnw = document.querySelector('.mdui-btn-icon');
+          if (menuButtonnw && inst.getState() === 'opened') {
+            menuButtonnw.click();
+          }
           const isForceClose = localStorage.getItem('mdui-drawer-close');
+          /**
           if (isMobile || isForceClose) {
             inst.close();
             $('.mdui-overlay.mdui-overlay-show').remove();
             $('body').css('overflow', 'auto');
+            
           }
+            */
         }
       } catch (err) {
         console.warn('处理抽屉导航失败:', err);
