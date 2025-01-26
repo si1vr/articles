@@ -1,6 +1,6 @@
 // offline config passed to workbox-build.
 module.exports = {
-    globPatterns: ['**/*.{css,eot,gif,ijmap,js,png,svg,ttf,woff,woff2,xml}'],
+    globPatterns: ['**/*.{css,eot,gif,html,ijmap,js,png,svg,ttf,woff,woff2,xml}'],
     //                    ^ok ^ok ^ok ^ok  ^ok   ^ok  ^ok ^ok^ok ^ok ^ok ^ok  ^ok  ^ok   ^ok
 
     // 使用 `find . -type f -name '*.*' | sed 's|.*\.||' | sort | uniq | paste -sd '|'` 捕获
@@ -19,23 +19,23 @@ module.exports = {
       //   handler: 'StaleWhileRevalidate'
       // }
 
-      // {
-      //   urlPattern: /.*\.html$/,
-      //   /**
-      //    * 按需修改使用策略
-      //    * StaleWhileRevalidate: 使用缓存的内容尽快响应请求（如果可用），如果未缓存，则回退到网络请求。然后，网络请求用于更新缓存。
-      //    * CacheFirst: 缓存优先策略，优先获取缓存中的资源，如果缓存中没有相关资源，那么就发起网络请求。
-      //    * NetworkFirst: 尝试从网络获取最新请求，如果请求成功，将响应放入缓存中。如果网络无法返回响应，则将使用缓存响应。
-      //    * NetworkOnly: 只使用网络请求获取的资源
-      //    * CacheOnly: 只使用缓存中的资源
-      //    */
-      //   handler: 'StaleWhileRevalidate',
-      //   options: {
-      //     cacheName: 'html-cache',
-      //     cacheableResponse: { statuses: [0, 200] },
-      //     expiration: { maxAgeSeconds: 86400 * 1 } // 1d
-      //   }
-      // },
+      {
+        urlPattern: /.*\.html$/,
+        /**
+         * 按需修改使用策略
+         * StaleWhileRevalidate: 使用缓存的内容尽快响应请求（如果可用），如果未缓存，则回退到网络请求。然后，网络请求用于更新缓存。
+         * CacheFirst: 缓存优先策略，优先获取缓存中的资源，如果缓存中没有相关资源，那么就发起网络请求。
+         * NetworkFirst: 尝试从网络获取最新请求，如果请求成功，将响应放入缓存中。如果网络无法返回响应，则将使用缓存响应。
+         * NetworkOnly: 只使用网络请求获取的资源
+         * CacheOnly: 只使用缓存中的资源
+         */
+        handler: 'StaleWhileRevalidate',
+        options: {
+          cacheName: 'html-cache',
+          cacheableResponse: { statuses: [0, 200] },
+          expiration: { maxAgeSeconds: 86400 * 1 } // 1d
+        }
+      },
       {
         urlPattern: /\/$/, // 匹配所有以 / 结尾的 URL
         handler: 'StaleWhileRevalidate', // 使用 StaleWhileRevalidate 策略
