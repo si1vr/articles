@@ -71,12 +71,22 @@ qrcode:
 
   <div class="friend-card" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; width: 200px; text-align: center;">
     <div style="height: 120px; overflow: hidden;">
+        <img src="https://cdn.lar.moe/static/avatar/me.webp" alt="花と詩" style="width: 100%; height: 120px; object-fit: cover;">
+    </div>
+    <div class="friend-info" style="padding: 15px;">
+      <h3 style="margin: 0; font-size: 1.2em;  color: var(--text-color, #000);">花と詩</h3>
+      <p style="color: #666;">Hana to Uta</p>
+      <a href="https://tuskede0.top/" style="color: #3498db; text-decoration: none;">访问网站</a>
+    </div>
+  </div>
+<div class="friend-card" style="background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; width: 200px; text-align: center;">
+    <div style="height: 120px; overflow: hidden;">
         <img src="piowonsler.jpg" alt="TuskedEvening0" style="width: 100%; height: 120px; object-fit: cover;">
     </div>
     <div class="friend-info" style="padding: 15px;">
       <h3 style="margin: 0; font-size: 1.2em;  color: var(--text-color, #000);">TuskedEvening0</h3>
       <p style="color: #666;">Not too freedom nor too correct.</p>
-      <a href="https://tuskede0.top/" style="color: #3498db; text-decoration: none;">访问网站</a>
+      <a href="https://lar.moe/" style="color: #3498db; text-decoration: none;">访问网站</a>
     </div>
   </div>
   <!-- 可以继续添加更多友链卡片 -->
